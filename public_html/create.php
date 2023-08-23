@@ -15,7 +15,8 @@ $smarty->template_dir = '../templates/';
 
 $db_obj = new MysqlDB();
 
-// === POST送信がきた場合
+// ====== POST送信がきた場合
+// === インサート処理
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = $_POST['name'];
@@ -26,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'email' => $email
     ];
 
+    // === db.php , Insert_DATA
     $inset_result = $db_obj->Insert_DATA('smarty_users', $Insert_DATA);
 
     if ($inset_result) {
